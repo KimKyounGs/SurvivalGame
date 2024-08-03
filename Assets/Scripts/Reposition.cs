@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
+    Collider2D coll;
+
+    private void Awake() 
+    {
+        coll = GetComponent<Collider2D>();
+    }
     private void OnTriggerExit2D(Collider2D other) 
     {
         if (!other.CompareTag("Area")) return;
@@ -17,8 +23,9 @@ public class Reposition : MonoBehaviour
         float dirX = playerDir.x < 0 ? -1 : 1;
         float dirY = playerDir.y < 0 ? -1 : 1;
 
-        switch (transform.tag) {
-            case "Grond": 
+        switch (transform.tag) 
+        {
+            case "Ground": 
             {
                 if (dx > dy) 
                 {
@@ -32,7 +39,10 @@ public class Reposition : MonoBehaviour
             }
             case "Enemy":
             {
-
+                if (coll.enabled) 
+                {
+                    transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f)); // 맵 하나만큼 이동
+                }
                 break;
             }
         }

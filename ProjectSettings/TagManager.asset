@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Grond
   - Area
+  - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
