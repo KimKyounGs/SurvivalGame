@@ -7,8 +7,9 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriter;
     private bool isLive = true;
+    public bool isFrozen = false;
 
-    public float speed;
+    public float speed = 2.0f;
     public Rigidbody2D target;
 
     private void Awake()
@@ -17,14 +18,9 @@ public class Enemy : MonoBehaviour
         spriter = GetComponent<SpriteRenderer>();
     }
 
-    private void Start() 
-    {
-        speed = 2.0f;
-    }
-
     private void FixedUpdate()
     {
-        if (!isLive) return;
+        if (!isLive || isFrozen) return;
         Vector2 dirVec = target.position - rb.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + nextVec);
@@ -33,7 +29,8 @@ public class Enemy : MonoBehaviour
 
     private void LateUpdate() 
     {
-        if (!isLive) return;
+        if (!isLive || isFrozen) return;
         spriter.flipX = target.position.x > rb.position.x ;
     }
+
 }
