@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
+    private int hp;
+    private int maxHP;
     private Rigidbody2D rb;
     private SpriteRenderer spriter;
     public float moveSpeed = 5f;
@@ -39,5 +41,11 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value) 
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    public void HealHP(int healAmount)
+    {
+        if (hp + healAmount > maxHP) hp = maxHP;
+        else hp += healAmount;
     }
 }
