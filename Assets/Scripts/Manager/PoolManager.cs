@@ -14,6 +14,8 @@ public class PoolManager : MonoBehaviour
         for (int i = 0; i < pools.Length; i ++) {
             pools[i] = new List<GameObject>();
         }
+
+        Debug.Log(pools.Length);
     }
 
     public GameObject Get(int index) 
@@ -23,7 +25,7 @@ public class PoolManager : MonoBehaviour
         // 발견하면 select 변수에 할당
         foreach (GameObject item in pools[index])
         {
-            if (item.activeSelf) {
+            if (!item.activeSelf) {
                 // 발견하면 select 변수에 할당
                 select = item;
                 select.SetActive(true);
@@ -37,6 +39,8 @@ public class PoolManager : MonoBehaviour
             select = Instantiate(prefabs[index], transform);
             pools[index].Add(select);
         } 
+
+        // Debug.Log("GetSelect");
         return select;
     }
 }
