@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public ItemEffect item;
+    public ItemEffect itemEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (item != null)
+            if (itemEffect != null)
             {
-                item.Effect(collision.gameObject);
+                itemEffect.Effect(collision.gameObject);
+                Destroy(gameObject);
             }
         }
-
-        Destroy(gameObject);
     }
 }

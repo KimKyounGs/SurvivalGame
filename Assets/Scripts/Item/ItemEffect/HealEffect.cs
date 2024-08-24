@@ -7,9 +7,6 @@ using UnityEngine;
 public class HealEffect : ItemEffect
 {
     public int healAmount;
-    public GameObject prefab;
-
-    public override GameObject Prefab { get => prefab; }
     public override void Effect(GameObject target)
     {
         // 체력 회복
