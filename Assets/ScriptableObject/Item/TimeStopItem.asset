@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d6ee742ad6ed4303af579584218e93c, type: 3}
-  m_Name: HealItem
+  m_Name: TimeStopItem
   m_EditorClassIdentifier: 
-  itemName: Heal!!
-  itemPrefab: {fileID: 9065302863989296100, guid: 06db083f5d921994cb1acf5b534b9d29, type: 3}
-  itemEffect: {fileID: 11400000, guid: 7c2a1bc75d84aa549a1294e92e83818d, type: 2}
+  itemName: 
+  itemPrefab: {fileID: 0}
+  itemEffect: {fileID: 0}

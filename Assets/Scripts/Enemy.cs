@@ -7,9 +7,11 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriter;
     private bool isLive = true;
+    
     public bool isFrozen = false;
-
     public float speed = 2.0f;
+    public float health;
+    public float maxHealth;
     public Rigidbody2D target;
 
     private void Awake()
@@ -36,5 +38,14 @@ public class Enemy : MonoBehaviour
     // 스크립트가 활성화될 때 호출되는 함수
     private void OnEnable() {
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
+        isLive = true;
+        health = maxHealth;
+    }
+
+    public void Init(SpawnData spawnData)
+    {
+        speed = spawnData.speed;
+        maxHealth = spawnData.health;
+        health = spawnData.health;
     }
 }

@@ -7,6 +7,5 @@ public class ItemData : ScriptableObject
 {
     public string itemName;
     public GameObject itemPrefab;
-    public ItemEffect itemEffect;
 
 }

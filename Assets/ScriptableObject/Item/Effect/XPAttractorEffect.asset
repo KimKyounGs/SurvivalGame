@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6ee742ad6ed4303af579584218e93c, type: 3}
-  m_Name: New Item Data
+  m_Script: {fileID: 11500000, guid: 9020b89cd152c43b8b85a3214c7cd5cc, type: 3}
+  m_Name: XPAttractorEffect
   m_EditorClassIdentifier: 
-  itemName: 
-  itemPrefab: {fileID: 0}
-  itemEffect: {fileID: 0}
+  attractRange: 0
+  attractSpeed: 0
