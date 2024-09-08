@@ -168,7 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9065302863989296100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae1913bfa8b7c54ab500d343f4998c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 98590ead5ec414c10b0c5e771067902d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEffect: {fileID: 11400000, guid: 7c2a1bc75d84aa549a1294e92e83818d, type: 2}
+  healAmount: 50

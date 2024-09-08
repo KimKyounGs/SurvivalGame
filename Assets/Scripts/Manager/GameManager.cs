@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         gameTime += Time.deltaTime;
 

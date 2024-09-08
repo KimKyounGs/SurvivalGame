@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: XpAttractorItem
   m_EditorClassIdentifier: 
   itemName: TimeStop!!
-  itemPrefab: {fileID: 0}
-  itemEffect: {fileID: 0}
+  itemPrefab: {fileID: 8309547996672599703, guid: b112ecc59e486426187617f864e3c5f2, type: 3}

@@ -171,5 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e784a278508ee49c98be303efb654c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDatas:
-  - {fileID: 11400000, guid: 8495e06e14f5a4d179725f997a4dfe48, type: 2}
+  healItem: {fileID: 9065302863989296100, guid: 06db083f5d921994cb1acf5b534b9d29, type: 3}
+  freezeEnemyItem: {fileID: 4795083123290149070, guid: b768ba3bbab67457fafba8e8b7601804, type: 3}
+  attractXPItem: {fileID: 8309547996672599703, guid: b112ecc59e486426187617f864e3c5f2, type: 3}

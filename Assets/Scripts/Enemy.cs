@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriter;
     private bool isLive = true;
     
-    public bool isFrozen = false;
+    private bool isFrozen = false;
+    private float freezeTimer = 0f;
     public float speed = 2.0f;
     public float health;
     public float maxHealth;
@@ -19,7 +20,17 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
     }
-
+    private void Update()
+    {
+        if (isFrozen)
+        {
+            freezeTimer -= Time.deltaTime;
+            if (freezeTimer <= 0)
+            {
+                isFrozen = false;
+            }
+        }
+    }
     private void FixedUpdate()
     {
         if (!isLive || isFrozen) return;
@@ -48,4 +59,11 @@ public class Enemy : MonoBehaviour
         maxHealth = spawnData.health;
         health = spawnData.health;
     }
+
+    public void Freeze(float duration)
+    {
+        isFrozen = true;
+        freezeTimer = duration;
+    }
+
 }

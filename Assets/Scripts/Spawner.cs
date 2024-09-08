@@ -9,11 +9,11 @@ public class Spawner : MonoBehaviour
     int level;
     float timer;
     
-    void Awake() 
+    private void Awake() 
     {
         spawnPoint = GetComponentsInChildren<Transform>();
     }
-    void Update()
+    private void Update()
     {
         timer += Time.deltaTime;
         // 적절한 시간에 맞춰서 레벨이 올라가게끔 만들기.
@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void Spawn()
+    private void Spawn()
     {
         GameObject enemy = GameManager.instance.pool.Get(0);
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;

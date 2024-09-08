@@ -5,20 +5,47 @@ using UnityEngine;
 
 public class RandomBox : MonoBehaviour
 {
-    public ItemData[] itemDatas; // 아이템 프리팹
-    // 상자가 부서질 때 호출될 메소드
-    public void Break()
-    {
-        int randomIndex = Random.Range(0, itemDatas.Length);
-        ItemData selectedItemData = itemDatas[randomIndex];
-        // 아이템 생성 생성 -> '스크립터블 오브젝트'는 게임 오브젝트처럼 위치와 회전을 가지고 있지 않아서 Instantiate함수를 사용하지 못한다.
-        Instantiate(selectedItemData.itemPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-    }
+   // 아이템 타입을 정의
+    enum ItemType { Heal, FreezeEnemy, AttractXP }
+    
+    // 힐, 적 얼리기, 경험치 아이템을 연결할 오브젝트
+    public GameObject healItem;
+    public GameObject freezeEnemyItem;
+    public GameObject attractXPItem;
 
-    private void Update() {
+    void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             Break();
         }
+    }
+
+    void SpawnRandomItem()
+    {
+        ItemType randomItem = (ItemType)Random.Range(0, 3);
+
+        switch (randomItem)
+        {
+            case ItemType.Heal:
+                Instantiate(healItem, transform.position, Quaternion.identity);
+                Debug.Log("healItem 생성됨");
+                break;
+
+            case ItemType.FreezeEnemy:
+                Instantiate(freezeEnemyItem, transform.position, Quaternion.identity);
+                Debug.Log("freezeEnemyItem 생성됨");
+                break;
+
+            case ItemType.AttractXP:
+                Instantiate(attractXPItem, transform.position, Quaternion.identity);
+                Debug.Log("attractXPItem 생성됨");
+                break;
+        }
+
+        Destroy(gameObject);
+    }
+    // 상자가 부서질 때 호출될 메소드
+    public void Break()
+    {
+        SpawnRandomItem();
     }
 }

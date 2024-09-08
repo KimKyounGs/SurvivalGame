@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6ee742ad6ed4303af579584218e93c, type: 3}
   m_Name: TimeStopItem
   m_EditorClassIdentifier: 
-  itemName: 
-  itemPrefab: {fileID: 0}
-  itemEffect: {fileID: 0}
+  itemName: Time Stop!!
+  itemPrefab: {fileID: 4795083123290149070, guid: b768ba3bbab67457fafba8e8b7601804, type: 3}
