@@ -53,6 +53,22 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
     }
 
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(!other.CompareTag("Weapon")) return;
+
+        health -= other.GetComponent<Bullet>().damage;
+
+        if (health > 0)
+        {
+
+        }
+        else 
+        {
+            Dead();
+        }
+    }
+
     public void Init(SpawnData spawnData)
     {
         speed = spawnData.speed;
@@ -64,6 +80,11 @@ public class Enemy : MonoBehaviour
     {
         isFrozen = true;
         freezeTimer = duration;
+    }
+
+    public void Dead()
+    {
+        gameObject.SetActive(false);
     }
 
 }
