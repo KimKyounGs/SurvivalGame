@@ -10,6 +10,14 @@ public class Weapon : MonoBehaviour
     public int count;
     public float speed;
 
+    private float timer;
+    Player player;
+
+    private void Awake() 
+    {
+        player = GetComponentInParent<Player>();    
+    }
+
     private void Start()
     {
         Init();
@@ -26,6 +34,13 @@ public class Weapon : MonoBehaviour
 
             default:
             {
+                timer += Time.deltaTime;
+
+                if (timer > speed) 
+                {
+                    timer = 0f;
+                    Fire();
+                }
                 break;
             }
         }
@@ -60,6 +75,7 @@ public class Weapon : MonoBehaviour
 
             default:
             {
+                speed = 0.3f;
                 break;
             }
         }
@@ -89,7 +105,21 @@ public class Weapon : MonoBehaviour
             float angle = 360f * i / count;
             bullet.Rotate(0, 0, angle);
             bullet.Translate(Vector2.up * -1.5f, Space.Self);
-            bullet.GetComponent<Bullet>().Init(damage, -1); // -1은 무한
+            bullet.GetComponent<Bullet>().Init(damage, -1, Vector3.zero); // -1은 무한
         }
+    }
+
+    private void Fire()
+    {
+        if (!player.scanner.nearestTarget) return;
+
+        Vector3 targetPos = player.scanner.nearestTarget.position;
+        Vector3 dir = targetPos - transform.position;
+        dir = dir.normalized; // 현재 벡터의 뱡향은 유지되고 크기가 1이 됨.
+
+        Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
+        bullet.position = transform.position;
+        bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir); // 지정된 축을 중심으로 목표를 향해 회전하는 함수
+        bullet.GetComponent<Bullet>().Init(damage, count, dir); // -1은 무한
     }
 }

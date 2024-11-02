@@ -55,13 +55,14 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if(!other.CompareTag("Weapon")) return;
+        if(!other.CompareTag("Weapon") || !isLive) return;
 
         health -= other.GetComponent<Bullet>().damage;
+        // 넉백
 
         if (health > 0)
         {
-
+            // Hit 애니메이션 등등
         }
         else 
         {
@@ -84,7 +85,10 @@ public class Enemy : MonoBehaviour
 
     public void Dead()
     {
+        isLive = false;
         gameObject.SetActive(false);
+        GameManager.instance.kill++;
+        // 경험치 아이템 생성.
     }
 
 }

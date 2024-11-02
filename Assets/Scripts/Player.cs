@@ -9,17 +9,18 @@ public class Player : MonoBehaviour
     private int maxHP;
     private int XP;
     private int maxXP;
-    private int Level;
     private Rigidbody2D rb;
     private SpriteRenderer spriter;
+    public Scanner scanner;
     public float moveSpeed = 5f;
     public Vector2 moveInput;
     public Vector2 moveVelocity;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        scanner = GetComponent<Scanner>();
     }
 
     private void Update()
