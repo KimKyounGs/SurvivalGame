@@ -75,7 +75,7 @@ public class Weapon : MonoBehaviour
 
             default:
             {
-                speed = 0.3f;
+                speed = 0.3f; // 연사 속도. 작을수록 더 많이 쏜다.
                 break;
             }
         }
@@ -116,7 +116,7 @@ public class Weapon : MonoBehaviour
         Vector3 targetPos = player.scanner.nearestTarget.position;
         Vector3 dir = targetPos - transform.position;
         dir = dir.normalized; // 현재 벡터의 뱡향은 유지되고 크기가 1이 됨.
-
+        
         Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir); // 지정된 축을 중심으로 목표를 향해 회전하는 함수

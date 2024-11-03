@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Scanner : MonoBehaviour
 {
-    public float scanRange;
-    public LayerMask targetLayer;
-    public RaycastHit2D[] targets;
-    public Transform nearestTarget;
+    public float scanRange; // 스캔 반경 범위
+    public LayerMask targetLayer; // 적 레이어
+    public RaycastHit2D[] targets; // 범위 안에 있는 적들
+    public Transform nearestTarget; // 가장 가까운 적
 
     private void FixedUpdate() 
     {
@@ -25,7 +25,7 @@ public class Scanner : MonoBehaviour
         {
             Vector3 myPos = transform.position;
             Vector3 targetPos = target.transform.position;
-            float curDiff = Vector3.Distance(myPos, targetPos);
+            float curDiff = Vector3.Distance(myPos, targetPos); // Distance(a,b) : a와 b의 위치 차이를 반환
 
             if (curDiff < diff)
             {

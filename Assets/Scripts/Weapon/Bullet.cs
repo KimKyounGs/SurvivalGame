@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
         if (per > -1) // 원거리는 -1보다 크다.
         {
-            rigid.velocity = dir * 15;
+            rigid.velocity = dir * 10;
         }
     }
 
