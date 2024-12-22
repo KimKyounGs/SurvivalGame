@@ -7,8 +7,6 @@ public class Player : MonoBehaviour
 {
     private int hp;
     private int maxHP;
-    private int XP;
-    private int maxXP;
     private Rigidbody2D rb;
     private SpriteRenderer spriter;
     public Scanner scanner;
@@ -55,10 +53,10 @@ public class Player : MonoBehaviour
 
     public void AddXP(int XPAmount)
     {
-        if (XP + XPAmount >= maxXP) {
+        // if (XP + XPAmount >= maxXP) {
             // LevelUp;
-            XP -= maxXP;
-        }
-        XP += XPAmount;
+        //   XP -= maxXP;
+        // }
+        // XP += XPAmount;
     }
 }

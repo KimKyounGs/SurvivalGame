@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.instance.kill++;
         // 경험치 아이템 생성.
+        GameManager.instance.exp++;
     }
 
 }
