@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
+        if(!GameManager.instance.isLive) return;
+        
         if (isFrozen)
         {
             freezeTimer -= Time.deltaTime;
@@ -33,6 +35,8 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(!GameManager.instance.isLive) return;
+
         if (!isLive || isFrozen) return;
         Vector2 dirVec = target.position - rb.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
@@ -42,6 +46,8 @@ public class Enemy : MonoBehaviour
 
     private void LateUpdate() 
     {
+        if(!GameManager.instance.isLive) return;
+        
         if (!isLive || isFrozen) return;
         spriter.flipX = target.position.x > rb.position.x ;
     }
@@ -89,7 +95,7 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.instance.kill++;
         // 경험치 아이템 생성.
-        GameManager.instance.exp++;
+        GameManager.instance.GetExp();
     }
 
 }

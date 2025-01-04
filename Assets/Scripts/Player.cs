@@ -28,12 +28,16 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!GameManager.instance.isLive) return;
+
         moveVelocity = moveInput * moveSpeed *  Time.fixedDeltaTime;
         rb.MovePosition(rb.position + moveVelocity);
     }
 
     private void LateUpdate() 
     {
+        if(!GameManager.instance.isLive) return;
+        
         if (moveInput.x != 0) 
         {
             spriter.flipX = moveInput.x > 0;
